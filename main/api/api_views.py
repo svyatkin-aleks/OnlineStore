@@ -14,9 +14,10 @@ class CategoryCreateView(CreateAPIView):
     serializer_class = CategorySerialazer
 
 
-class CategoryRetrievApiView(RetrieveAPIView):
+class CategoryDetailApiView(RetrieveAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerialazer
+    lookup_field = 'id'
 
 
 class CategoryDestroyApiView(DestroyAPIView):
@@ -36,9 +37,10 @@ class ProductCreateAPIView(CreateAPIView):
     queryset = Product.objects.all()
 
 
-class ProductRetrievApiView(RetrieveAPIView):
+class ProductDetailApiView(RetrieveAPIView):
     queryset = Product.objects.all()
     serializer_class = CategorySerialazer
+    lookup_field = 'id'
 
 
 class ProductDestroyApiView(DestroyAPIView):
