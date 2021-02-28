@@ -1,4 +1,4 @@
-from rest_framework.generics import ListAPIView, CreateAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, DestroyAPIView
 from .serialazers import CategorySerialazer, ProductSerialazier
 from ..models import Category, Product
 from rest_framework.filters import SearchFilter
@@ -14,6 +14,16 @@ class CategoryCreateView(CreateAPIView):
     serializer_class = CategorySerialazer
 
 
+class CategoryRetrievApiView(RetrieveAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerialazer
+
+
+class CategoryDestroyApiView(DestroyAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerialazer
+
+
 class ProductListAPIView(ListAPIView):
     serializer_class = ProductSerialazier
     queryset = Product.objects.all()
@@ -24,3 +34,14 @@ class ProductListAPIView(ListAPIView):
 class ProductCreateAPIView(CreateAPIView):
     serializer_class = ProductSerialazier
     queryset = Product.objects.all()
+
+
+class ProductRetrievApiView(RetrieveAPIView):
+    queryset = Product.objects.all()
+    serializer_class = CategorySerialazer
+
+
+class ProductDestroyApiView(DestroyAPIView):
+    queryset = Product.objects.all()
+    serializer_class = CategorySerialazer
+
